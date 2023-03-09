@@ -1,11 +1,20 @@
 import React from "react";
 
-const ListOfGoals = () => {
+const ListOfGoals = ({allGoals}) => {
     return (
       <ul>
-        <li>
-            <p>My goal is to goalName, by goalDeadline.</p>
-          </li>
+        {
+          allGoals.length > 0 ? (
+            <>
+            {allGoals.map((goal, index) => (
+              <li key={index}>
+              <p>My goal is to {goal.goal}, by {goal.by}.</p>
+            </li>
+            ))}
+            </>
+          ) : null
+        }
+        
       </ul>
     );
 }
